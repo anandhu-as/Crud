@@ -4,7 +4,12 @@ const App = () => {
   const [inputvalue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
   const handleChange = (event) => setInputValue(event.target.value);
-  const handleClick = () => setTodos([...inputvalue, todos]);
+  const handleClick = () => {
+    setTodos([...todos,inputvalue]);
+
+    console.log(todos);
+  };
+
   return (
     <div>
       <input type="text" value={inputvalue} onChange={handleChange} />
