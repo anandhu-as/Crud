@@ -1,37 +1,17 @@
 import React, { useState } from "react";
-import "./App.css";
-let globalID = 0;
-function App() {
+
+const App = () => {
+  const [inputvalue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
-  const [todoValue, setTodovalue] = useState("");
-  const addTodo = (e) =>
-    e.keyCode === 13
-      ? setTodos([...todos, { todo: todoValue, id: globalID++ }])
-      : null;
-  const deleteTodo = (deleteId) =>
-    setTodos((oldTodos) => oldTodos.filter((item) => item.id !== deleteId));
+  const handleChange = (event) => setInputValue(event.target.value);
+  const handleClick = () => setTodos([...inputvalue, todos]);
   return (
-    <>
-      <h1 className="title">Todo App</h1>
-      <input
-        className="input"
-        type="text"
-        value={todoValue}
-        onChange={(e) => setTodovalue(e.target.value)}
-        onKeyDown={addTodo}
-      />
-      <ul className="todo-list">
-        {todos.map((item, i) => {
-          return (
-            <div key={item.id} className="container">
-              <li className="todo-item">{item.todo}</li>
-              <button onClick={() => deleteTodo(item.id)}> ❌</button>
-            </div>
-          );
-        })}
-      </ul>
-      <footer className="footer">@anandhu-as</footer>
-    </>
+    <div>
+      <input type="text" value={inputvalue} onChange={handleChange} />
+      <button onClick={handleClick}>add</button>
+      <h1>{todos}</h1>
+    </div>
   );
-}
+};
+
 export default App;
