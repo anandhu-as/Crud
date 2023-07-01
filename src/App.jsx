@@ -5,16 +5,21 @@ const App = () => {
   const [todos, setTodos] = useState([]);
   const handleChange = (event) => setInputValue(event.target.value);
   const handleClick = () => {
-    setTodos([...todos,inputvalue]);
-
-    console.log(todos);
+    setTodos([...todos, inputvalue]);
+    setInputValue('')
   };
 
   return (
     <div>
       <input type="text" value={inputvalue} onChange={handleChange} />
       <button onClick={handleClick}>add</button>
-      <h1>{todos}</h1>
+      {todos.map((item, index) => {
+        return (
+          <div key={index}>
+            <h1>{item}</h1>
+          </div>
+        );
+      })}
     </div>
   );
 };
