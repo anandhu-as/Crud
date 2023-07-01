@@ -43,6 +43,7 @@ const Todo = () => {
             <h1>{item.todoValue} </h1>
             <button onClick={() => handleDelete(item.id)}>❌</button>
             <button onClick={() => handleComplete(item.id)}>strike</button>
+            <button>edit</button>
           </div>
         );
       })}
