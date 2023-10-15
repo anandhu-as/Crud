@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import Todo from "./Todo";
+import React from 'react'
+
 const App = () => {
-  return(
-  <Todo/>)
-};
-export default App;
+  return (
+    <div>App</div>
+  )
+}
+
+export default App
